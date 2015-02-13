@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+//colors
+$white: rgba(255, 255, 255, 1);
+.white_text {
+  color: $white;
+}
+$black: rgba(0, 0, 0, 1);
+$black_trans: rgba(0, 0, 0, 0.14);
+/* $red_dark: rgba(180, 0, 0, 1); */
+$color_sunset_orange_approx: #ff3b30;
+.orange_bg {
+  background-color: $color_sunset_orange_approx !important;
+  h3 {
+    color: $white !important;
+  }
+}
+$color_picton_blue_approx: #34AADC;
+$color_dune_approx: rgba(59, 46, 46, 1);
+.gray_bg {
+  background-color: $color_dune_approx !important;
+  h3 {
+    color: $white !important;
+  }
+}
+$color_shark_approx: #333333;
+$color_pharlap_approx: rgba(168, 133, 133, 1);
+$color_regent_gray_approx: rgba(133, 146, 168, 1);
+$color_mulled_wine_approx: rgba(85, 57, 99, 1);
+$color_alto_approx: rgba(222, 222, 222, 1);
+$color_mountain_mist_trans: rgba(159, 160, 164, 0.659);
+
+//dimensions
+$base_font_size: 1.13rem;
+
+$section_height: 800px;
+$carousel_height_xxl: $section_height + 200px;
+$carousel_height_xl: $section_height + 150px;
+$carousel_height_lg: $section_height - 100px;
+$carousel_height: $carousel_height_lg - 100px;
+
+$main_width: 1024px;
+$main-width-lg: 1380px;
+$left-margin: 20px;
+
+$url_rt: url("../../images/arrow_left_2_white.png");
+
+// special effects
+
+figure {
+  margin: 0;
+}
+.hidden { // flippers
+  opacity: 0;
+  transition: 0.5s;
+}
+.slide-text p.emerge {
+    opacity: 1;
+    margin-top: 0px;
+    transition: 0.6s;
+}
+%retreat {
+  opacity: 0;
+  margin-top: 40px;
+  /* transition: 0.3s; */
+}
+
+// extends / general tag defs
+p {
+  font-size: 1.05rem;
+  /* text-align: justify; */
+}
+%hcenter {
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+%vcenter {
+  float:none;
+  display:inline-block; /* if this doesnt work, try table-cell and setting an explicit height or height: inherit */
+  vertical-align:middle;
+}
+.clearfix:before, 
+.clearfix:after { 
+  content: "";
+  display: table; 
+}
+.clearfix:after {
+  clear: both; 
+}
+.clearfix {
+  zoom: 1; /* IE6&7 */ 
+}
+h3 {
+}
+h4 {
+  font-size: 1.7em;
+}
+h5 {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+%im-button {
+  font-size: 1.1rem;
+  border-radius: 5px;
+  color: $white;
+  background-color: $color_shark_approx;
+  padding: 10px;
+  width: 180px;
+  margin-top: 10px;
+  padding-top: 0.9rem;
+  margin-left: 20px;
+}
+.im-button {
+  @extend %im-button;
+}
+%carousel_height {
+  height: $carousel_height;
+  @media (min-width: 1200px) and (max-width: 1800px) {
+    height: $carousel_height_lg;
+  }
+  @media (min-width: 1801px) and (max-width: 2099px) {
+    height: $carousel_height_xl;
+  }
+  @media (min-width: 2100px) {
+    height: $carousel_height_xxl;
+  }
+}
+%section_container {
+  width: 100%;
+  min-width: 1024px;
+  position: relative;
+  float: left;
+}
+
+// main
+html, body{
+  /* height: 100%; */
+  /* overflow: hidden; */
+}
+body {
+  background-color: $white;
+  font: 400 1em/1.38;
+  color: $black;
+}
+.main-container {
+  width: $main_width;
+  overflow: hidden;
+}
+// section containers
+  div[class^='section-container'], .im-footer {
+    width: 100%;
+    min-width: 1024px;
+    position: relative;
+    float: left;
+  }
+// sections
+  // centered sections
+  .slide-text {
+    @extend %hcenter;
+    width: $main_width;
+  }
+  // sections with padding
+  .slide-text {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .main {
+    /* top: $carousel_height_lg */
+    float: left;
+    position: relative;
+  }
+
+// carousel
+  $dot-size: 14px;
+  .slider-dots {
+    right: 4%;
+    top: -1 * $dot-size - 8px;
+    position: absolute;
+  }
+  button.slider-dot {
+    height: $dot-size;
+    width: $dot-size;
+    background-color: $color_mountain_mist_trans;
+    border-radius: 30px;
+    margin-right: 2px;
+  }
+  button.slider-dot.dot-selected {
+    background-color: $color_sunset_orange_approx;
+  }
+  .parallaxcontainer {
+    position: relative;
+    float: left;
+    z-index: 110;
+    width: 100%;
+    min-width: 1024px;
+    @extend %carousel_height;
+    overflow: hidden;
+  }
+  .carouselcontainer {
+    position: relative;
+    float: left;
+    width: 100%;
+    @extend %carousel_height;
+  }
+  .carouselslide {
+    position: absolute;
+    top: 0;
+    @extend %carousel_height;
+    transition: all 0.6s;
+  }
+  .carouselslides {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 105;
+    width: 300.0078127034%;
+    @extend %carousel_height;
+    transition: all 0.6s;
+  }
+  // flippers
+  .flippers {
+    z-index: 109;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 0;
+    height: 450px;
+  }
+  .flipper {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    top: 300px;
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
+    background-color: $black_trans;
+    border: solid 1px $color_mountain_mist_trans;
+  }
+  .leftbutton {
+    left: 2%;
+  }
+  .leftbutton:before {
+  }
+  .rightbutton {
+    /* background-image: $url_rt; */
+    right: 2%;
+  }
+  .leftbutton .flipperarrow {
+    background-image: $url_rt;
+  }
+  .rightbutton .flipperarrow {
+    background-image: $url_rt;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    left: -5%;
+  }
+  .flipperarrow {
+		background-size: contain;
+    height: 80%;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    background-repeat: none;
+  }
+
+
+  .checkmark {
+    /* color: $color_sunset_orange_approx; */
+  }
+
+.slide-text {
+	position: relative;
+	top: 10rem;
+  left: 1.5rem;
+	z-index: 108;
+	min-height: 111px;
+	/* font: 300 2.125em/1.38; */
+  /* font-weight: 300; */
+  /* font-size: 2.5rem; */
+	word-spacing: 6px;
+	color: $white;
+  @media (max-width: 1040px) {
+    left: 5rem;
+  }
+  p {
+    @extend %retreat;
+    display: inline-block;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 3.3rem;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-bottom: 4px;
+    strong {
+      font-weight: normal;
+    }
+  }
+}
+.carouselslide-1 .slide-text {
+  p {
+    font-size: 3.3rem;
+  }
+}
+.carouselslide-2 .slide-text {
+	top: 5.5rem;
+  left: 0rem;
+  p {
+    background-color: rgba(0,0,0,0.7);
+    /* font-size: 2rem; */
+  }
+}
+.text {
+	position: relative;
+	font-weight: 400;
+	color: $white;
+}
+.carouselslide-1, .carouselslide-2, .carouselslide-3 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+	width: 33.33%;
+}
+.carouselslide-1 {
+	left: 0;
+	z-index: 104;
+  /* background-image: $url_c1; */
+  background-color: $color_regent_gray_approx;
+}
+.carouselslide-2 {
+	left: 33.33%;
+	z-index: 103;
+  /* background-image: $url_c2; */
+	/* width: 33.3310172317%; */
+  background-color: orange;
+}
+.carouselslide-3 {
+	left: 66.67%;
+	z-index: 102;
+	/* width: 33.3310172317%; */
+	background-color: $color_mulled_wine_approx;
+}
