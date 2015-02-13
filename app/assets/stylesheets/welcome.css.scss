@@ -176,17 +176,21 @@ body {
   $dot-size: 14px;
   .slider-dots {
     right: 4%;
-    top: -1 * $dot-size - 8px;
+    /* top: -1 * $dot-size - 8px; */
+    bottom: 22px;
+    z-index: 111;
     position: absolute;
   }
-  button.slider-dot {
+  div.slider-dot {
+    cursor: pointer;
+    display: inline-block;
     height: $dot-size;
     width: $dot-size;
     background-color: $color_mountain_mist_trans;
     border-radius: 30px;
     margin-right: 2px;
   }
-  button.slider-dot.dot-selected {
+  div.slider-dot.dot-selected {
     background-color: $color_sunset_orange_approx;
   }
   .parallaxcontainer {
