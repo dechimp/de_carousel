@@ -39,6 +39,9 @@ $carousel_height_xl: $section_height + 150px;
 $carousel_height_lg: $section_height - 100px;
 $carousel_height: $carousel_height_lg - 100px;
 
+$flipper_size: 75px;
+$flipper_indentation: 35px;
+$slide_text_padding: ($flipper_size + $flipper_indentation + 10px);
 $main_width: 1024px;
 $main-width-lg: 1380px;
 $left-margin: 20px;
@@ -159,12 +162,12 @@ body {
   // centered sections
   .slide-text {
     @extend %hcenter;
-    width: $main_width;
+    /* width: $main_width; */
   }
   // sections with padding
   .slide-text {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: $slide_text_padding;
+    padding-right: $slide_text_padding;
   }
   .main {
     /* top: $carousel_height_lg */
@@ -237,20 +240,20 @@ body {
     position: absolute;
     text-align: center;
     top: 300px;
-    width: 75px;
-    height: 75px;
+    width: $flipper_size;
+    height: $flipper_size;
     border-radius: 8px;
     background-color: $black_trans;
     border: solid 1px $color_mountain_mist_trans;
   }
   .leftbutton {
-    left: 2%;
+    left: $flipper_indentation;
   }
   .leftbutton:before {
   }
   .rightbutton {
     /* background-image: $url_rt; */
-    right: 2%;
+    right: $flipper_indentation;
   }
   .leftbutton .flipperarrow {
     background-image: $url_rt;
@@ -278,7 +281,6 @@ body {
 .slide-text {
 	position: relative;
 	top: 10rem;
-  left: 1.5rem;
 	z-index: 108;
 	min-height: 111px;
 	/* font: 300 2.125em/1.38; */

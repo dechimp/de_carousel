@@ -13,7 +13,7 @@ $ ->
   carouselIndex = 0
   carouselScreenCount = 3
   autoAdvanceDelay = 5000
-  textEmergeDelay = 800
+  textEmergeDelay = 400
 
   ### Carousel ###
 
