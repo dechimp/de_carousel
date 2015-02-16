@@ -5,7 +5,7 @@ ruby '2.0.0'
 
 gem 'slim-rails'
 gem 'pg'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
