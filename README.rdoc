@@ -1,7 +1,5 @@
 == README
 
-A rails app containing a carousel (slider)
+A carousel (slider) inside a blank rails app.
 
-I have no demo hosted yet.
-
-Please forgive.
+Demo: http://de-carousel.herokuapp.com/
