@@ -3,3 +3,5 @@
 A carousel (slider) inside a blank rails app.
 
 Demo: http://de-carousel.herokuapp.com/
+
+No copyright.  Pls steal.
